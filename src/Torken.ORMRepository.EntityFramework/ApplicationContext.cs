@@ -1,11 +1,11 @@
-﻿namespace MyRepository.EntityFramework
+﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
+namespace Torken.ORMRepository.EntityFramework
 {
-    using Infrastructure;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
     using System;
-    using JetBrains.Annotations;
-    using Microsoft.EntityFrameworkCore.ChangeTracking;
+    using Torken.ORMRepository.Interfaces;
 
     public class ApplicationContext : DbContext, IReadOnlySource, IEditableSource, ITransactionSource
     {

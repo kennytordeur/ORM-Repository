@@ -1,4 +1,4 @@
-﻿namespace MyRepository.Infrastructure
+﻿namespace Torken.ORMRepository.Interfaces
 {
     using System;
 

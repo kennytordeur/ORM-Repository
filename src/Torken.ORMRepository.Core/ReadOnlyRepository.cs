@@ -1,8 +1,9 @@
-﻿namespace MyRepository.Infrastructure
+﻿namespace Torken.ORMRepository.Core
 {
     using System;
     using System.Linq;
     using System.Linq.Expressions;
+    using Torken.ORMRepository.Interfaces;
 
     public class ReadOnlyRepository : IReadOnlyRepository
     {

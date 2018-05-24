@@ -1,4 +1,6 @@
-﻿namespace MyRepository.Infrastructure
+﻿using Torken.ORMRepository.Interfaces;
+
+namespace Torken.ORMRepository.Core
 {
     public class EditableRepository : ReadOnlyRepository, IEditableRepository
     {
