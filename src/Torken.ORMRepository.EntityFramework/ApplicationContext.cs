@@ -15,7 +15,7 @@ namespace Torken.ORMRepository.EntityFramework
 
         }
 
-        public ApplicationContext(DbContextOptions<ApplicationContext<TContext>> options)
+        public ApplicationContext(DbContextOptions<TContext> options)
             : base(options)
         {
         }
