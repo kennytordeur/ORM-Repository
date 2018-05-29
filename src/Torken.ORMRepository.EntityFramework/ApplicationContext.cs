@@ -7,19 +7,18 @@ namespace Torken.ORMRepository.EntityFramework
     using System;
     using Torken.ORMRepository.Interfaces;
 
-    public class ApplicationContext : DbContext, IReadOnlySource, IEditableSource, ITransactionSource
+    public class ApplicationContext<TContext> : DbContext, IReadOnlySource, IEditableSource, ITransactionSource where TContext : ApplicationContext<TContext>
     {
         public ApplicationContext()
-            : base()
+             : base()
         {
-            
+
         }
 
-        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+        public ApplicationContext(DbContextOptions<ApplicationContext<TContext>> options)
             : base(options)
         {
         }
-                
 
         public IQueryable<T> GetSet<T>(params System.Linq.Expressions.Expression<System.Func<T, object>>[] propertiesToInclude) where T : class
         {
@@ -47,7 +46,7 @@ namespace Torken.ORMRepository.EntityFramework
         {
             base.SaveChanges();
         }
-        
+
         public void Update<T>(T entity) where T : class
         {
             Set<T>().Attach(entity);
