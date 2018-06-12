@@ -42,7 +42,7 @@ namespace Torken.ORMRepository.EntityFramework
             Set<T>().Remove(entity);
         }
 
-        public new void SaveChanges()
+        public void SaveChanges()
         {
             base.SaveChanges();
         }
