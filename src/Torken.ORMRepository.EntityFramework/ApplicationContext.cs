@@ -1,6 +1,4 @@
-﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
-namespace Torken.ORMRepository.EntityFramework
+﻿namespace Torken.ORMRepository.EntityFramework
 {
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
@@ -20,7 +18,7 @@ namespace Torken.ORMRepository.EntityFramework
         {
         }
 
-        public IQueryable<T> GetSet<T>(params System.Linq.Expressions.Expression<System.Func<T, object>>[] propertiesToInclude) where T : class
+        public virtual IQueryable<T> GetSet<T>(params System.Linq.Expressions.Expression<System.Func<T, object>>[] propertiesToInclude) where T : class
         {
             IQueryable<T> set = Set<T>();
 
@@ -32,34 +30,34 @@ namespace Torken.ORMRepository.EntityFramework
             return set;
         }
 
-        public void Add<T>(T entity) where T : class
+        public virtual void Add<T>(T entity) where T : class
         {
             Set<T>().Add(entity);
         }
 
-        public void Delete<T>(T entity) where T : class
+        public virtual void Delete<T>(T entity) where T : class
         {
             Set<T>().Remove(entity);
         }
 
-        public void SaveChanges()
+        public virtual void SaveChanges()
         {
             base.SaveChanges();
         }
 
-        public void Update<T>(T entity) where T : class
+        public virtual void Update<T>(T entity) where T : class
         {
             Set<T>().Attach(entity);
             Entry<T>(entity).State = EntityState.Modified;
             base.Update<T>(entity);
         }
 
-        public IDisposable BeginTransaction()
+        public virtual IDisposable BeginTransaction()
         {
             return Database.BeginTransaction();
         }
 
-        public void Commit()
+        public virtual void Commit()
         {
             Database.CommitTransaction();
         }

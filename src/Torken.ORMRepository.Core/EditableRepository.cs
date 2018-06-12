@@ -12,12 +12,12 @@ namespace Torken.ORMRepository.Core
             _editableSource = editableSource;
         }
 
-        public void Add<T>(T entity) where T : class
+        public virtual void Add<T>(T entity) where T : class
         {
             _editableSource.Add(entity);
         }
 
-        public void Delete<T>(T entity) where T : class
+        public virtual void Delete<T>(T entity) where T : class
         {
             _editableSource.Delete(entity);
         }
